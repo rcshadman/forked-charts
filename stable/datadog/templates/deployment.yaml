@@ -76,9 +76,11 @@ spec:
 {{ toYaml .Values.datadog.env | indent 10 }}
 {{- end }}
         volumeMounts:
+          {{- if .Values.datadog.useDockerSocketVolume }}
           - name: dockersocket
             mountPath: /var/run/docker.sock
             readOnly: true
+          {{- end }}
           - name: procdir
             mountPath: /host/proc
             readOnly: true
@@ -105,9 +107,11 @@ spec:
           initialDelaySeconds: 15
           periodSeconds: 5
       volumes:
+        {{- if .Values.datadog.useDockerSocketVolume }}
         - hostPath:
             path: /var/run/docker.sock
           name: dockersocket
+        {{- end }}
         - hostPath:
             path: /proc
           name: procdir

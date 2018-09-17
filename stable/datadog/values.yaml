@@ -115,6 +115,9 @@ datadog:
   ##
   # nonLocalTraffic: true
 
+  ## Enable docker socket volume mounting
+  useDockerSocketVolume: True
+
   ## Set host tags.
   ## ref: https://github.com/DataDog/docker-dd-agent#environment-variables
   ##
