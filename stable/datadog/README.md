@@ -57,6 +57,7 @@ The following table lists the configurable parameters of the Datadog chart and t
 | `datadog.tags`              | Set host tags                      | `nil`                                     |
 | `datadog.volumes`           | Additional volumes for the daemonset or deployment | `nil`                     |
 | `datadog.volumeMounts`      | Additional volumeMounts for the daemonset or deployment | `nil`                |
+| `datadog.useDockerSocketVolume` | Enable mounting the docker socket in Agent containers | `True`                |
 | `datadog.resources.requests.cpu` | CPU resource requests              | `200m`                                    |
 | `datadog.resources.limits.cpu` | CPU resource limits                | `200m`                                    |
 | `datadog.resources.requests.memory` | Memory resource requests           | `256Mi`                                   |
