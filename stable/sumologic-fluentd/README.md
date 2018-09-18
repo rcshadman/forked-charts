@@ -105,6 +105,7 @@ The following table lists the configurable parameters of the sumologic-fluentd c
 | `resources.limits.memory` | Memory resource limits | 256Mi |
 | `rbac.create` | Is Role Based Authentication enabled in the cluster | `false` |
 | `rbac.serviceAccountName` | RBAC service account name | {{ fullname }} |
+| `daemonset.priorityClassName` | Priority Class to use for the daemonset | `Nil` |
 
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
@@ -169,12 +170,12 @@ $ helm install --name my-release stable/sumologic-fluentd --set rbac.create=true
 
 ### Excluding and Including data
 
-You have several options controlling the filtering of data that gets sent to Sumo Logic.  
+You have several options controlling the filtering of data that gets sent to Sumo Logic.
 
 #### Excluding data using environment variables
 
 There are several environment variables that can exclude data.  The following table show which  environment variables affect which Fluentd sources.
-                                                                
+
 | Environment Variable | Containers | Docker | Kubernetes | Systemd |
 |----------------------|------------|--------|------------|---------|
 | `EXCLUDE_CONTAINER_REGEX` | ✔ | ✘ | ✘ | ✘ |
